@@ -64,13 +64,21 @@ public class Train implements Movable {
 
 
     public boolean accident(Train train) {
-        if (currentStation == train.nextStation && nextStation == train.currentStation
-                || currentStation == nextStation && train.nextStation == train.currentStation && train.nextStation == nextStation) {
-            System.out.println("1train= "+ currentStation + nextStation + "2train= " +train.currentStation + train.nextStation);
+        System.out.println(currentStation.getName() + nextStation.getName() + train.currentStation.getName() + train.nextStation.getName());
+        if (moveToEachOther(train)
+                || stayAtSameStation(train) ) { //stay at same position
             return true;
         }
 
             return false;
+    }
+
+    private boolean stayAtSameStation(Train train){
+        return currentStation == nextStation && train.nextStation == train.currentStation && train.nextStation == nextStation;
+    }
+
+    private boolean moveToEachOther(Train train){
+        return currentStation == train.nextStation && nextStation == train.currentStation;
     }
 
     @Override

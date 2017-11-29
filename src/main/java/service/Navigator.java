@@ -20,14 +20,13 @@ public class Navigator {
     Map<String, NavigatorNode> visited;
 
     public LinkedList getRoute(String from, String to) {
-        LinkedList route;
         RailwayStation start = railwayNetwork.getStation(from);
         RailwayStation finish = railwayNetwork.getStation(to);
         makeVisitedMap();
         visited.put(from, new NavigatorNode(START_STATION, start));
         makeNavigateMap(start, finish);
 
-        return route = makeRoadList(start, finish);
+        return makeRoadList(start, finish);
     }
 
     private void makeNavigateMap(RailwayStation currentStation, RailwayStation finish) {
