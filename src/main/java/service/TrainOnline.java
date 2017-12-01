@@ -30,7 +30,7 @@ public class TrainOnline {
     }
 
     public synchronized void letsMove() {
-        if (trains.size() > 1) {
+        if (trains.size() > 0) {
             for (int i = 0; i < trains.size(); i++) {
                 System.out.println(trains.get(i));
                 trains.get(i).move();

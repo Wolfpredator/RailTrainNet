@@ -23,6 +23,9 @@ public class Train  {
                 this(from.getStationName(), to.getStationName());
             }
 
+    public int getCurrentPosition() {
+        return currentPosition;
+    }
 
     public Train(LinkedList<RailwayStation> route) {
         this.route = route;
@@ -30,7 +33,6 @@ public class Train  {
     }
 
     public Train(String from, String to) {
-
         this(new Navigator().getRoute(from, to));
     }
 
@@ -87,6 +89,7 @@ public class Train  {
         }
         return false;
     }
+
 
     private boolean stayAtSameStation(Train train) {
         return currentStation == nextStation && train.nextStation == train.currentStation && train.nextStation == nextStation;

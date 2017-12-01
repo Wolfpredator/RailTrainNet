@@ -9,7 +9,7 @@ import java.util.*;
 public class RailwayStation {
 
     private final String name;
-    private Map<RailwayStation, Railway> railwaysRelations = new HashMap<RailwayStation, Railway>();
+    private Map<RailwayStation, Railway> railwaysRelations = new HashMap<>();
 
     public String getName() {
         return name;
@@ -25,7 +25,7 @@ public class RailwayStation {
             railwaysRelations.put(station, railway);
             station.railwaysRelations.put(this, railway);
         } else {
-            System.out.println("не добавлен, уже есть");
+            //System.out.println("не добавлен, уже есть");
         }
     }
 

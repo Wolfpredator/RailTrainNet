@@ -34,7 +34,7 @@ public class Navigator {
 
     private void makeNavigateMap(RailwayStation currentStation, RailwayStation finish) {
         Map<RailwayStation, Railway> railwayRelations = currentStation.getRelationsRailways();
-        if (!(currentStation == finish)) {
+     //   if (!(currentStation == finish)) {
             for (Map.Entry<RailwayStation, Railway> entry : railwayRelations.entrySet()) {
                 RailwayStation nextStation = entry.getValue().getAnotherStation(currentStation);
 
@@ -53,7 +53,7 @@ public class Navigator {
                 }
             }
         }
-    }
+  //  }
 
     private void makeVisitedMap() {
         visited = new HashMap<>();
