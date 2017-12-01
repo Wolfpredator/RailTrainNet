@@ -1,6 +1,5 @@
 package service;
 
-import model.Movable;
 import model.Train;
 
 import java.util.*;
@@ -11,7 +10,7 @@ import java.util.*;
  */
 public class TrainOnline {
 
-    private volatile ArrayList<Movable> movables = new ArrayList<Movable>();
+    private volatile ArrayList<Train> trains = new ArrayList<>();
     private final static TrainOnline instance = new TrainOnline();
 
     private TrainOnline() {
@@ -22,25 +21,36 @@ public class TrainOnline {
         return instance;
     }
 
-    public synchronized void subscribe(Movable movable) {
-        movables.add(movable);
+    public synchronized void subscribe(Train train) {
+        trains.add(train);
     }
 
-    public synchronized void unsubscribe(Movable movable) {
-        movables.remove(movable);
+    public synchronized void unsubscribe(Train train) {
+        trains.remove(train);
     }
 
     public synchronized void letsMove() {
-        if (!movables.isEmpty()) {
-            for (int i = 0; i < movables.size() ; i++) {
-                System.out.println(movables.get(i));
-                movables.get(i).move();
+        if (trains.size() > 1) {
+            for (int i = 0; i < trains.size(); i++) {
+                System.out.println(trains.get(i));
+                trains.get(i).move();
             }
-        }else {
+
+            for (int i = 0; i < trains.size(); i++) {
+                for (int j = 0; j < trains.size(); j++) {
+                    Train firstTrain = trains.get(i);
+                    Train secondTrain = trains.get(j);
+                    if (!(firstTrain == secondTrain)) {
+                        firstTrain.checkAccident(secondTrain);
+                    }
+                }
+            }
+        } else {
             System.out.println("Нету поездов в сети");
             Thread.currentThread().interrupt();
         }
     }
 }
+
 
 

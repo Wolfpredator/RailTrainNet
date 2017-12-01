@@ -1,10 +1,10 @@
 package defaulStation;
 
+import model.ParseStationNode;
 import model.RailwayNetwork;
+import service.XmlParser;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Gorchakov Vladimir
@@ -13,28 +13,41 @@ import java.util.Random;
 public final class Initializer {
     RailwayNetwork railwayNetwork;
     Random random;
+    XmlParser xmlParser;
+    Map<String, ArrayList<ParseStationNode>> dataFromXml;
 
     public Initializer() {
         railwayNetwork = RailwayNetwork.getInstance();
         random = new Random();
+        xmlParser = new XmlParser();
     }
 
     public void work() {
-        initStations(SaintPetersburgUndergroundBlue.values());
-        initStations(SaintPetersburgUndergroundGreen.values());
-        initStations(SaintPetersburgUndergroundOrange.values());
-        initStations(SaintPetersburgUndergroundRed.values());
-        initStations(SaintPetersburgUndergroundPurple.values());
+        dataFromXml = xmlParser.getData();
+        if (dataFromXml == null) initDefault();
+        else {
+            initDataFromXml();
+        }
 
-        initRelations(SaintPetersburgUndergroundBlue.values());
-        initRelations(SaintPetersburgUndergroundGreen.values());
-        initRelations(SaintPetersburgUndergroundOrange.values());
-        initRelations(SaintPetersburgUndergroundRed.values());
-        initRelations(SaintPetersburgUndergroundPurple.values());
+
+    }
+
+    private void initDefault() {
+        initDefaultStations(SaintPetersburgUndergroundBlue.values());
+        initDefaultStations(SaintPetersburgUndergroundGreen.values());
+        initDefaultStations(SaintPetersburgUndergroundOrange.values());
+        initDefaultStations(SaintPetersburgUndergroundRed.values());
+        initDefaultStations(SaintPetersburgUndergroundPurple.values());
+
+        initDefaultRelations(SaintPetersburgUndergroundBlue.values());
+        initDefaultRelations(SaintPetersburgUndergroundGreen.values());
+        initDefaultRelations(SaintPetersburgUndergroundOrange.values());
+        initDefaultRelations(SaintPetersburgUndergroundRed.values());
+        initDefaultRelations(SaintPetersburgUndergroundPurple.values());
     }
 
 
-    private void initStations(final SaintPetersburgUnderground[] undergroundValues) {
+    private void initDefaultStations(final SaintPetersburgUnderground[] undergroundValues) {
         final Iterator<SaintPetersburgUnderground> iterator = Arrays.asList(undergroundValues).iterator();
 
         if (!iterator.hasNext()) return;
@@ -45,7 +58,7 @@ public final class Initializer {
         }
     }
 
-    public void initRelations(final SaintPetersburgUnderground[] undergroundValues){
+    public void initDefaultRelations(final SaintPetersburgUnderground[] undergroundValues) {
         final Iterator<SaintPetersburgUnderground> iterator = Arrays.asList(undergroundValues).iterator();
 
         if (!iterator.hasNext()) return;
@@ -60,6 +73,23 @@ public final class Initializer {
         }
     }
 
+    private void initDataFromXml() {
+        Set<String> stations = dataFromXml.keySet();
+        for (String name :
+                stations) {
+            createStation(name);
+        }
+        for (String name :
+                stations) {
+            ArrayList<ParseStationNode> parseStationNodeArrayList = dataFromXml.get(name);
+            for (ParseStationNode parseStationNode :
+                    parseStationNodeArrayList) {
+                createRelation(name, parseStationNode.getStationName(), parseStationNode.getDistance());
+            }
+
+        }
+    }
+
     private void createStation(final String value) {
         railwayNetwork.createStation(value);
     }
@@ -68,7 +98,11 @@ public final class Initializer {
         railwayNetwork.setConnectionStation(previousStation, nextStation, getDistance());
     }
 
+    private void createRelation(final String hostStation, final String slaveStation, int distance) {
+        railwayNetwork.setConnectionStation(hostStation, slaveStation, distance);
+    }
+
     private int getDistance() {
-        return random.nextInt(9) + 1;
+        return 3;//random.nextInt(9) + 1;
     }
 }

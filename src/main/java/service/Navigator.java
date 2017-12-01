@@ -16,32 +16,39 @@ public class Navigator {
     private final Integer START_STATION = 0;
     private final Integer NOT_VISITED = Integer.MAX_VALUE / 2;
 
-    RailwayNetwork railwayNetwork = RailwayNetwork.getInstance();
-    Map<String, NavigatorNode> visited;
+    private RailwayNetwork railwayNetwork = RailwayNetwork.getInstance();
+    private Map<String, NavigatorNode> visited;
 
     public LinkedList getRoute(String from, String to) {
+
         RailwayStation start = railwayNetwork.getStation(from);
         RailwayStation finish = railwayNetwork.getStation(to);
+
         makeVisitedMap();
         visited.put(from, new NavigatorNode(START_STATION, start));
+
         makeNavigateMap(start, finish);
 
         return makeRoadList(start, finish);
     }
 
     private void makeNavigateMap(RailwayStation currentStation, RailwayStation finish) {
-        Map<RailwayStation, Railway> railwayRelations = currentStation.getRelatoinsRailways();
+        Map<RailwayStation, Railway> railwayRelations = currentStation.getRelationsRailways();
         if (!(currentStation == finish)) {
             for (Map.Entry<RailwayStation, Railway> entry : railwayRelations.entrySet()) {
+                RailwayStation nextStation = entry.getValue().getAnotherStation(currentStation);
+
+                int valueNextStation = visited.get(nextStation.getName()).getValue();
                 int valueCurrentStation = visited.get(currentStation.getName()).getValue();
                 int railwayValue = entry.getValue().getDistance();
-                RailwayStation nextStation = entry.getValue().getAnotherStation(currentStation);
-                int valueNextStation = visited.get(nextStation.getName()).getValue();
 
                 if (valueCurrentStation + railwayValue < valueNextStation) {
+
                     NavigatorNode navigatorNode = visited.get(nextStation.getName());
                     navigatorNode.set(valueCurrentStation + railwayValue, currentStation);
+
                     visited.put(nextStation.getName(), navigatorNode);
+
                     makeNavigateMap(nextStation, finish);
                 }
             }
@@ -63,7 +70,12 @@ public class Navigator {
         RailwayStation currentStation = finishStation;
         while (!(currentStation == startStation)) {
             roadList.addFirst(currentStation);
-            currentStation = visited.get(currentStation.getName()).getStation();
+            NavigatorNode navigatorNode = visited.get(currentStation.getName());
+            if(currentStation == navigatorNode.getStation()){
+                System.out.println("Невозможно проложить маршрут");
+                return null;
+            }
+            currentStation = navigatorNode.getStation();
         }
         roadList.addFirst(currentStation);
         return roadList;

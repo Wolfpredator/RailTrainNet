@@ -29,4 +29,5 @@ public class Railway {
         if (stations.get(0) == railwayStation) return stations.get(1);
         return stations.get(0);
     }
+
 }

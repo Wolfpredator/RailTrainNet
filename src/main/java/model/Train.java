@@ -1,5 +1,6 @@
 package model;
 
+import defaulStation.SaintPetersburgUnderground;
 import service.Navigator;
 import service.TrainOnline;
 
@@ -9,33 +10,47 @@ import java.util.LinkedList;
  * @author Gorchakov Vladimir
  * @version 1.0
  */
-public class Train implements Movable {
+public class Train  {
 
     private RailwayStation currentStation;
     private RailwayStation nextStation;
     private LinkedList<RailwayStation> route;
     private int distance;
     private int currentPosition;
+    private TrainOnline trainOnline;
+
+    public Train(final SaintPetersburgUnderground from, final SaintPetersburgUnderground to) {
+                this(from.getStationName(), to.getStationName());
+            }
 
 
     public Train(LinkedList<RailwayStation> route) {
         this.route = route;
-        currentStation = route.pollFirst();
-        nextStation = route.pollFirst();
-        initDistance();
+        initDate();
     }
 
     public Train(String from, String to) {
-        route = new Navigator().getRoute(from, to);
+
+        this(new Navigator().getRoute(from, to));
+    }
+
+
+    private void initDate(){
+        if (route == null){
+            System.out.println("Невозможно двигаться по данному маршруту");
+            return;
+        }
         currentStation = route.pollFirst();
         nextStation = route.pollFirst();
         initDistance();
+        trainOnline = TrainOnline.getInstance();
+        trainOnline.subscribe(this);
     }
+
 
     public void move() {
         if (nextStation == currentStation) {
             if (route.isEmpty()) {
-                TrainOnline trainOnline = TrainOnline.getInstance();
                 System.out.println("финишировал");
                 trainOnline.unsubscribe(this);
                 return;
@@ -48,7 +63,7 @@ public class Train implements Movable {
     }
 
     private void initDistance() {
-        Railway railway = currentStation.getRelatoinsRailways().get(nextStation);
+        Railway railway = currentStation.getRelationsRailways().get(nextStation);
         distance = railway.getDistance();
         currentPosition = 0;
     }
@@ -63,21 +78,21 @@ public class Train implements Movable {
     }
 
 
-    public boolean accident(Train train) {
-        System.out.println(currentStation.getName() + nextStation.getName() + train.currentStation.getName() + train.nextStation.getName());
-        if (moveToEachOther(train)
-                || stayAtSameStation(train) ) { //stay at same position
+    public boolean checkAccident(Train secondTrain) {
+         if (moveToEachOther(secondTrain) || stayAtSameStation(secondTrain)){
+            trainOnline.unsubscribe(this);
+            trainOnline.unsubscribe(secondTrain);
+            System.out.println("Столкновение");
             return true;
         }
-
-            return false;
+        return false;
     }
 
-    private boolean stayAtSameStation(Train train){
+    private boolean stayAtSameStation(Train train) {
         return currentStation == nextStation && train.nextStation == train.currentStation && train.nextStation == nextStation;
     }
 
-    private boolean moveToEachOther(Train train){
+    private boolean moveToEachOther(Train train) {
         return currentStation == train.nextStation && nextStation == train.currentStation;
     }
 

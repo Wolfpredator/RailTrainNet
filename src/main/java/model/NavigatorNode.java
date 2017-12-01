@@ -1,7 +1,5 @@
 package model;
 
-import model.RailwayStation;
-
 /**
  * @author Gorchakov Vladimir
  * @version 1.0
@@ -27,13 +25,13 @@ public class NavigatorNode {
         return fromStation;
     }
 
-    public void setStation(RailwayStation fromStation) {
+    public void setFromStation(RailwayStation fromStation) {
         this.fromStation = fromStation;
     }
 
     public void set(int value, RailwayStation fromStation) {
         setValue(value);
-        setStation(fromStation);
+        setFromStation(fromStation);
     }
 
     @Override

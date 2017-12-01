@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Stations>
+    <Station name="Автово">
+        <RelationStation name="Ленинский проспект" distance="3"/>
+        <RelationStation name="Кировский завод" distance="3"/>
+    </Station>
+    <Station name="Адмиралтейская">
+        <RelationStation name="Сенная площадь" distance="3"/>
+        <RelationStation name="Спортивная" distance="3"/>
+    </Station>
+    <Station name="Академическая">
+        <RelationStation name="Политехническая" distance="3"/>
+        <RelationStation name="Гражданский проспект" distance="3"/>
+    </Station>
+    <Station name="Балтийская">
+        <RelationStation name="Нарвская" distance="3"/>
+        <RelationStation name="Технологический институт" distance="3"/>
+    </Station>
+    <Station name="Бухарестская">
+        <RelationStation name="Волковская" distance="3"/>
+        <RelationStation name="Международная" distance="3"/>
+    </Station>
+    <Station name="Василеостровская">
+        <RelationStation name="Приморская" distance="3"/>
+        <RelationStation name="Невский проспект" distance="3"/>
+    </Station>
+    <Station name="Волковская">
+        <RelationStation name="Обводный канал" distance="3"/>
+        <RelationStation name="Бухарестская" distance="3"/>
+    </Station>
+    <Station name="Выборгская">
+        <RelationStation name="Площадь Ленина" distance="3"/>
+        <RelationStation name="Лесная" distance="3"/>
+    </Station>
+    <Station name="Горьковская">
+        <RelationStation name="Невский проспект" distance="3"/>
+        <RelationStation name="Петроградская" distance="3"/>
+    </Station>
+    <Station name="Гражданский проспект">
+        <RelationStation name="Академическая" distance="3"/>
+        <RelationStation name="Девяткино" distance="3"/>
+    </Station>
+    <Station name="Девяткино">
+        <RelationStation name="Гражданский проспект" distance="3"/>
+    </Station>
+    <Station name="Достоевская">
+        <RelationStation name="Пушкинская" distance="3"/>
+        <RelationStation name="Лиговский проспект" distance="3"/>
+        <RelationStation name="Сенная площадь" distance="3"/>
+        <RelationStation name="Площадь Восстания" distance="3"/>
+    </Station>
+    <Station name="Елизаровская">
+        <RelationStation name="Ломоносовская" distance="3"/>
+        <RelationStation name="Площадь Александра Невского" distance="3"/>
+    </Station>
+    <Station name="Звёздная">
+        <RelationStation name="Московская" distance="3"/>
+        <RelationStation name="Купчино" distance="3"/>
+    </Station>
+    <Station name="Кировский завод">
+        <RelationStation name="Автово" distance="3"/>
+        <RelationStation name="Нарвская" distance="3"/>
+    </Station>
+    <Station name="Комендантский проспект">
+        <RelationStation name="Старая Деревня" distance="3"/>
+    </Station>
+    <Station name="Крестовский остров">
+        <RelationStation name="Чкаловская" distance="3"/>
+        <RelationStation name="Старая Деревня" distance="3"/>
+    </Station>
+    <Station name="Купчино">
+        <RelationStation name="Звёздная" distance="3"/>
+    </Station>
+    <Station name="Ладожская">
+        <RelationStation name="Проспект Большевиков" distance="3"/>
+        <RelationStation name="Новочеркасская" distance="3"/>
+    </Station>
+    <Station name="Ленинский проспект">
+        <RelationStation name="Проспект Ветеранов" distance="3"/>
+        <RelationStation name="Автово" distance="3"/>
+    </Station>
+    <Station name="Лесная">
+        <RelationStation name="Выборгская" distance="3"/>
+        <RelationStation name="Площадь Мужества" distance="3"/>
+    </Station>
+    <Station name="Лиговский проспект">
+        <RelationStation name="Площадь Александра Невского" distance="3"/>
+        <RelationStation name="Достоевская" distance="3"/>
+    </Station>
+    <Station name="Ломоносовская">
+        <RelationStation name="Елизаровская" distance="3"/>
+        <RelationStation name="Пролетарская" distance="3"/>
+    </Station>
+    <Station name="Международная">
+        <RelationStation name="Бухарестская" distance="3"/>
+    </Station>
+    <Station name="Московская">
+        <RelationStation name="Парк Победы" distance="3"/>
+        <RelationStation name="Звёздная" distance="3"/>
+    </Station>
+    <Station name="Московские ворота">
+        <RelationStation name="Фрунзенская" distance="3"/>
+        <RelationStation name="Электросила" distance="3"/>
+    </Station>
+    <Station name="Нарвская">
+        <RelationStation name="Кировский завод" distance="3"/>
+        <RelationStation name="Балтийская" distance="3"/>
+    </Station>
+    <Station name="Невский проспект">
+        <RelationStation name="Горьковская" distance="3"/>
+        <RelationStation name="Площадь Восстания" distance="3"/>
+        <RelationStation name="Василеостровская" distance="3"/>
+        <RelationStation name="Сенная площадь" distance="3"/>
+    </Station>
+    <Station name="Новочеркасская">
+        <RelationStation name="Площадь Александра Невского" distance="3"/>
+        <RelationStation name="Ладожская" distance="3"/>
+    </Station>
+    <Station name="Обводный канал">
+        <RelationStation name="Пушкинская" distance="3"/>
+        <RelationStation name="Волковская" distance="3"/>
+    </Station>
+    <Station name="Обухово">
+        <RelationStation name="Рыбацкое" distance="3"/>
+        <RelationStation name="Пролетарская" distance="3"/>
+    </Station>
+    <Station name="Озерки">
+        <RelationStation name="Проспект Просвещения" distance="3"/>
+        <RelationStation name="Удельная" distance="3"/>
+    </Station>
+    <Station name="Парк Победы">
+        <RelationStation name="Электросила" distance="3"/>
+        <RelationStation name="Московская" distance="3"/>
+    </Station>
+    <Station name="Петроградская">
+        <RelationStation name="Чёрная речка" distance="3"/>
+        <RelationStation name="Горьковская" distance="3"/>
+    </Station>
+    <Station name="Пионерская">
+        <RelationStation name="Удельная" distance="3"/>
+        <RelationStation name="Чёрная речка" distance="3"/>
+    </Station>
+    <Station name="Чёрная речка">
+        <RelationStation name="Пионерская" distance="3"/>
+        <RelationStation name="Петроградская" distance="3"/>
+    </Station>
+    <Station name="Площадь Александра Невского">
+        <RelationStation name="Елизаровская" distance="3"/>
+        <RelationStation name="Новочеркасская" distance="3"/>
+        <RelationStation name="Площадь Восстания" distance="3"/>
+        <RelationStation name="Лиговский проспект" distance="3"/>
+    </Station>
+    <Station name="Площадь Восстания">
+        <RelationStation name="Достоевская" distance="3"/>
+        <RelationStation name="Чернышевская" distance="3"/>
+        <RelationStation name="Площадь Александра Невского" distance="3"/>
+        <RelationStation name="Невский проспект" distance="3"/>
+    </Station>
+    <Station name="Площадь Ленина">
+        <RelationStation name="Чернышевская" distance="3"/>
+        <RelationStation name="Выборгская" distance="3"/>
+    </Station>
+    <Station name="Площадь Мужества">
+        <RelationStation name="Лесная" distance="3"/>
+        <RelationStation name="Политехническая" distance="3"/>
+    </Station>
+    <Station name="Политехническая">
+        <RelationStation name="Площадь Мужества" distance="3"/>
+        <RelationStation name="Академическая" distance="3"/>
+    </Station>
+    <Station name="Приморская">
+        <RelationStation name="Василеостровская" distance="3"/>
+    </Station>
+    <Station name="Пролетарская">
+        <RelationStation name="Обухово" distance="3"/>
+        <RelationStation name="Ломоносовская" distance="3"/>
+    </Station>
+    <Station name="Проспект Большевиков">
+        <RelationStation name="Ладожская" distance="3"/>
+        <RelationStation name="Улица Дыбенко" distance="3"/>
+    </Station>
+    <Station name="Проспект Ветеранов">
+        <RelationStation name="Ленинский проспект" distance="3"/>
+    </Station>
+    <Station name="Проспект Просвещения">
+        <RelationStation name="Парнас" distance="3"/>
+        <RelationStation name="Озерки" distance="3"/>
+    </Station>
+    <Station name="Пушкинская">
+        <RelationStation name="Технологический институт" distance="3"/>
+        <RelationStation name="Сенная площадь" distance="3"/>
+        <RelationStation name="Достоевская" distance="3"/>
+        <RelationStation name="Обводный канал" distance="3"/>
+    </Station>
+    <Station name="Рыбацкое">
+        <RelationStation name="Обухово" distance="3"/>
+    </Station>
+    <Station name="Сенная площадь">
+        <RelationStation name="Невский проспект" distance="3"/>
+        <RelationStation name="Достоевская" distance="3"/>
+        <RelationStation name="Пушкинская" distance="3"/>
+        <RelationStation name="Технологический институт" distance="3"/>
+        <RelationStation name="Адмиралтейская" distance="3"/>
+    </Station>
+    <Station name="Спортивная">
+        <RelationStation name="Чкаловская" distance="3"/>
+        <RelationStation name="Адмиралтейская" distance="3"/>
+    </Station>
+    <Station name="Старая Деревня">
+        <RelationStation name="Комендантский проспект" distance="3"/>
+        <RelationStation name="Крестовский остров" distance="3"/>
+    </Station>
+    <Station name="Технологический институт">
+        <RelationStation name="Балтийская" distance="3"/>
+        <RelationStation name="Пушкинская" distance="3"/>
+        <RelationStation name="Сенная площадь" distance="3"/>
+        <RelationStation name="Фрунзенская" distance="3"/>
+    </Station>
+    <Station name="Удельная">
+        <RelationStation name="Озерки" distance="3"/>
+        <RelationStation name="Пионерская" distance="3"/>
+    </Station>
+    <Station name="Улица Дыбенко">
+        <RelationStation name="Проспект Большевиков" distance="3"/>
+    </Station>
+    <Station name="Фрунзенская">
+        <RelationStation name="Технологический институт" distance="3"/>
+        <RelationStation name="Московские ворота" distance="3"/>
+    </Station>
+    <Station name="Чернышевская">
+        <RelationStation name="Площадь Восстания" distance="3"/>
+        <RelationStation name="Площадь Ленина" distance="3"/>
+    </Station>
+    <Station name="Чкаловская">
+        <RelationStation name="Крестовский остров" distance="3"/>
+        <RelationStation name="Спортивная" distance="3"/>
+    </Station>
+    <Station name="Электросила">
+        <RelationStation name="Московские ворота" distance="3"/>
+        <RelationStation name="Парк Победы" distance="3"/>
+    </Station>
+    <Station name="Парнас">
+        <RelationStation name="Проспект Просвещения" distance="3"/>
+    </Station>
+
+</Stations>

@@ -15,7 +15,7 @@ public class RailwayStation {
         return name;
     }
 
-    public Map<RailwayStation, Railway> getRelatoinsRailways() {
+    public Map<RailwayStation, Railway> getRelationsRailways() {
         return railwaysRelations;
     }
 
@@ -25,10 +25,9 @@ public class RailwayStation {
             railwaysRelations.put(station, railway);
             station.railwaysRelations.put(this, railway);
         } else {
-            System.out.println(" не добавлен, уже есть");
+            System.out.println("не добавлен, уже есть");
         }
     }
-
 
     @Override
     public String toString() {
