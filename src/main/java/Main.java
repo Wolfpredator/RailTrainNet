@@ -2,6 +2,8 @@
 import defaulStation.Initializer;
 import model.Train;
 import service.LiveTimeSimulation;
+import service.TrainXmlParser;
+import service.XmlParser;
 
 
 /**
@@ -12,8 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
         new Initializer().work();
-        new Train("Парнас", "Академическая");
-        new Train("Технологический институт", "Парнас");
+        new TrainXmlParser().getTrain();
+      //  new Train("Парнас", "Академическая");
+       // new Train("Технологический институт", "Парнас");
         final Thread myThread = new Thread(new LiveTimeSimulation());
         myThread.start();
     }

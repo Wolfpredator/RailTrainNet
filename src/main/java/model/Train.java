@@ -12,6 +12,7 @@ import java.util.LinkedList;
  */
 public class Train  {
 
+    private RailwayNetwork railwayNetwork = RailwayNetwork.getInstance();
     private RailwayStation currentStation;
     private RailwayStation nextStation;
     private LinkedList<RailwayStation> route;
@@ -29,15 +30,24 @@ public class Train  {
 
     public Train(LinkedList<RailwayStation> route) {
         this.route = route;
-        initDate();
+        init();
     }
 
     public Train(String from, String to) {
-        this(new Navigator().getRoute(from, to));
+        boolean fromNotNull = railwayNetwork.getStation(from) != null;
+        boolean toNotNull = railwayNetwork.getStation(to) != null;
+
+        if(!fromNotNull) System.out.println("Станции отправления " + from + " не существует");
+        if(!toNotNull) System.out.println("Станции прибытия " + to + " не существует");
+
+        if (fromNotNull && toNotNull) {
+            route = new Navigator().getRoute(from, to);
+            init();
+        }
     }
 
 
-    private void initDate(){
+    private void init(){
         if (route == null){
             System.out.println("Невозможно двигаться по данному маршруту");
             return;

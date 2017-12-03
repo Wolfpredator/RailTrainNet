@@ -1,0 +1,5 @@
+<Trains>
+    <Train from="Удельная" to="Ладожская"/>
+    <Train from="Академическая" to="Парнас"/>
+    <Train from=" " to="Парнас"/>
+</Trains>
